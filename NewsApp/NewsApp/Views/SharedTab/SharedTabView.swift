@@ -12,7 +12,7 @@ struct SharedTabView: View {
     var body: some View {
 
         TabView {
-            HomeView()
+            NewsView()
                 .tabItem {
                     Label("News", systemImage: "newspaper")
                 }
