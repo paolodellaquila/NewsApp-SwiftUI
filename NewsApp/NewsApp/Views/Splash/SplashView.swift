@@ -22,6 +22,9 @@ struct SplashView: View {
         
         ZStack{
             
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            
             if(!endSplash){
                 SplashContent()
                     .onAppear(){
@@ -45,9 +48,8 @@ struct SplashContent: View {
         VStack{
              
              Image("news_icon")
-             
-             Text("News App")
-                 .font(.largeTitle.bold())
+                .frame(width: 64.0, height: 64.0)
+                .foregroundColor(.white)
             
          }
         
