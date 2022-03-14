@@ -23,7 +23,7 @@ struct TopHeadlineCard: View {
             KFImage(URL(string: article.urlToImage ?? ""))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.size.width - 36)
+                .frame(width: UIScreen.main.bounds.size.width - 16)
                 .modifier(CardModifier())
                 .frame(width: UIScreen.main.bounds.size.width,
                        height: 300,
@@ -33,7 +33,7 @@ struct TopHeadlineCard: View {
                 .foregroundColor(.black)
                 .opacity(0.5)
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.size.width - 36)
+                .frame(width: UIScreen.main.bounds.size.width - 16)
                 .modifier(CardModifier())
                 .frame(width: UIScreen.main.bounds.size.width,
                        height: 300,

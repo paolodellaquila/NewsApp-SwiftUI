@@ -22,10 +22,11 @@ struct NewsCard: View {
         
             KFImage(URL(string: article.urlToImage ?? ""))
                 .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100)
-                .padding(.all, 16)
+                .scaledToFill()
+                .frame(width: 80)
+                .padding([.leading, .trailing], 16)
                 .modifier(CardModifier())
+
         
 
             VStack(alignment: .leading) {
@@ -58,7 +59,8 @@ struct NewsCard: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color(red: 32/255, green: 36/255, blue: 38/255))
         .modifier(CardModifier())
-        .padding(.all, 16)
+        .padding([.leading, .trailing], 8)
+        .padding([.top, .bottom], 8)
         .contextMenu {
             VStack{
                 Button(
