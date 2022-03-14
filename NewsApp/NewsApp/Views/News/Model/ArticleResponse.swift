@@ -15,7 +15,7 @@ struct ArticleResponse: Codable {
 
 struct Article: Codable, Identifiable, Hashable {
     var id: String = UUID().uuidString
-    let source: Source
+    let source: ArticleSource
     let author: String?
     let title: String
     let articleDescription: String?
@@ -32,7 +32,7 @@ struct Article: Codable, Identifiable, Hashable {
 }
 
 // MARK: - Source
-struct Source: Codable, Identifiable, Hashable{
+struct ArticleSource: Codable, Identifiable, Hashable{
     let id: String?
     let name: String
 }

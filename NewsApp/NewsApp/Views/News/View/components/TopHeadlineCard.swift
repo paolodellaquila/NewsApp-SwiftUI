@@ -74,7 +74,10 @@ struct TopHeadlineCard: View {
             }
         }
         .sheet(isPresented: $shouldShowShareSheet) {
-            //TODO: manage share action
+            ShareViewController(activityItems: [
+                self.article.title ?? "",
+                self.article.url
+            ])
         }
     }
     
@@ -111,7 +114,7 @@ struct TopHeadlineCardContent: View {
 struct TopHeadlineCard_Previews: PreviewProvider {
     static var previews: some View {
         TopHeadlineCard(article: Article(
-            source: Source(id: "", name: "CNN"),
+            source: ArticleSource(id: "", name: "CNN"),
             author: "test",
             title: "Russian Missiles Strike Ukrainian Military Training Base Near Polish Border - The Wall Street Journal",
             articleDescription: "Attack on site where U.S. trained local forces kills at least 35, follows Moscow warning that arms shipments to Kyiv won’t be tolerated",

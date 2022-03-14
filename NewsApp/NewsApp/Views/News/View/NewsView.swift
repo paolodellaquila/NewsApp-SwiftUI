@@ -10,14 +10,13 @@ import SwiftUI
 struct NewsView: View {
     
     @ObservedObject var vm = NewsViewModel()
+
     
     init() {
-
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 32/255, green: 36/255, blue: 38/255, alpha: 1.0)
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().barTintColor = ColorTheme.specialGray
     }
     
     

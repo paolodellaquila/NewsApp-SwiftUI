@@ -35,6 +35,12 @@
 		48A767CB27DE2EA8005FE46D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 48A767CA27DE2EA8005FE46D /* Kingfisher */; };
 		48A767CE27DE302C005FE46D /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767CD27DE302C005FE46D /* SafariView.swift */; };
 		48A767D327DE4FEE005FE46D /* NewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767D227DE4FEE005FE46D /* NewsCard.swift */; };
+		48EC05B027DF4E4700DF7108 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */; };
+		48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */; };
+		48EC05B627DF4F4400DF7108 /* SourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B527DF4F4400DF7108 /* SourceProvider.swift */; };
+		48EC05B927DF505900DF7108 /* SourceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B827DF505900DF7108 /* SourceResponse.swift */; };
+		48EC05BD27DF530300DF7108 /* SourceArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05BC27DF530300DF7108 /* SourceArticles.swift */; };
+		48EC05BF27DF559300DF7108 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05BE27DF559300DF7108 /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,12 @@
 		48A767C727DE2E29005FE46D /* TopHeadlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlineCard.swift; sourceTree = "<group>"; };
 		48A767CD27DE302C005FE46D /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		48A767D227DE4FEE005FE46D /* NewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCard.swift; sourceTree = "<group>"; };
+		48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewModel.swift; sourceTree = "<group>"; };
+		48EC05B527DF4F4400DF7108 /* SourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceProvider.swift; sourceTree = "<group>"; };
+		48EC05B827DF505900DF7108 /* SourceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceResponse.swift; sourceTree = "<group>"; };
+		48EC05BC27DF530300DF7108 /* SourceArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceArticles.swift; sourceTree = "<group>"; };
+		48EC05BE27DF559300DF7108 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +261,7 @@
 				4822F16127DD32D900AEB8AF /* News */,
 				4822F16F27DD38C100AEB8AF /* Source */,
 				4822F17027DD38D200AEB8AF /* Search */,
+				48EC05BA27DF52EE00DF7108 /* SourceArticles */,
 				4822F17127DD38DF00AEB8AF /* Favorite */,
 			);
 			path = Views;
@@ -265,6 +278,9 @@
 		4822F16F27DD38C100AEB8AF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				48EC05B727DF503B00DF7108 /* Model */,
+				48EC05B427DF4F3900DF7108 /* Provider */,
+				48EC05B127DF4ED400DF7108 /* ViewModel */,
 				4822F17427DD390500AEB8AF /* View */,
 			);
 			path = Source;
@@ -352,6 +368,7 @@
 			children = (
 				48A767CC27DE3023005FE46D /* View */,
 				4822F18C27DD518600AEB8AF /* Constants.swift */,
+				48EC05BE27DF559300DF7108 /* ColorTheme.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -369,6 +386,47 @@
 			isa = PBXGroup;
 			children = (
 				48A767CD27DE302C005FE46D /* SafariView.swift */,
+				48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48EC05B127DF4ED400DF7108 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48EC05B427DF4F3900DF7108 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05B527DF4F4400DF7108 /* SourceProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		48EC05B727DF503B00DF7108 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05B827DF505900DF7108 /* SourceResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		48EC05BA27DF52EE00DF7108 /* SourceArticles */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05BB27DF52F800DF7108 /* View */,
+			);
+			path = SourceArticles;
+			sourceTree = "<group>";
+		};
+		48EC05BB27DF52F800DF7108 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05BC27DF530300DF7108 /* SourceArticles.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -509,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48EC05B627DF4F4400DF7108 /* SourceProvider.swift in Sources */,
 				4822F13827DD20D000AEB8AF /* Persistence.swift in Sources */,
 				4822F19427DD5A8B00AEB8AF /* NewsViewModel.swift in Sources */,
 				48A767C127DE2939005FE46D /* HandleError.swift in Sources */,
@@ -517,10 +576,15 @@
 				4822F18A27DD512300AEB8AF /* ArticleEndpoint.swift in Sources */,
 				48A767D327DE4FEE005FE46D /* NewsCard.swift in Sources */,
 				4822F13B27DD20D000AEB8AF /* NewsApp.xcdatamodeld in Sources */,
+				48EC05BF27DF559300DF7108 /* ColorTheme.swift in Sources */,
 				4822F12F27DD20CF00AEB8AF /* NewsApp.swift in Sources */,
 				4822F19227DD538F00AEB8AF /* NewsProvider.swift in Sources */,
 				4822F19027DD51F400AEB8AF /* ArticleResponse.swift in Sources */,
 				48A767C427DE2980005FE46D /* HttpErrors.swift in Sources */,
+				48EC05B027DF4E4700DF7108 /* ShareViewController.swift in Sources */,
+				48EC05BD27DF530300DF7108 /* SourceArticles.swift in Sources */,
+				48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */,
+				48EC05B927DF505900DF7108 /* SourceResponse.swift in Sources */,
 				4822F17727DD391A00AEB8AF /* SearchView.swift in Sources */,
 				4822F16327DD32E700AEB8AF /* NewsView.swift in Sources */,
 				48A767CE27DE302C005FE46D /* SafariView.swift in Sources */,
