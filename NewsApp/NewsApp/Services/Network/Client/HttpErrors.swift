@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIErrors: Int, LocalizedError {
+enum HttpErrors: Int, Error {
     case badRequest = 400
     case unAuthorized = 401
     case tooManyRequests = 429

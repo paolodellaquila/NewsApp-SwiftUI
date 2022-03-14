@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HttpClientErrors: LocalizedError {
+enum HttpClientErrors: Error {
     case invalidURL
     case dataNil
     case decodingError

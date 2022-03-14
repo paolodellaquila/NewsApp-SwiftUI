@@ -47,7 +47,7 @@ class HttpClient<Endpoint: EndpointProtocol> {
     private func loadData(with request: URLRequest) -> AnyPublisher<Data, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .mapError({ error -> Error in
-                APIErrors(rawValue: error.code.rawValue) ?? HttpClientErrors.unknownError
+                HttpErrors(rawValue: error.code.rawValue) ?? HttpClientErrors.unknownError
             })
             .map { $0.data }
             .eraseToAnyPublisher()

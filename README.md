@@ -15,3 +15,6 @@ NewsApp to display all recent news from public api
 ##### 1. Get your [News API key](https://newsapi.org)
 ##### 3. Insert your keys into Constants.swift file
 ##### 4. Run app
+
+## Overview tab
+![HomeView](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/HomeView.png)

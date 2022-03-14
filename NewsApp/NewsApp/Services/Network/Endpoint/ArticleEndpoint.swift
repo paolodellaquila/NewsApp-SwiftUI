@@ -51,6 +51,12 @@ enum ArticleEndpoint: EndpointProtocol {
     }
     
     var headers: [String: String] {
+        
+        if(Constants.API.apiKey.isEmpty){
+            //insert news api token into Constant file
+            fatalError()
+        }
+        
         return [
             "X-Api-Key": Constants.API.apiKey,
             "Content-type": "application/json",

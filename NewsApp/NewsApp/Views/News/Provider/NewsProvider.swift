@@ -12,7 +12,7 @@ protocol NewsAPI {
 
     var provider: HttpClient<ArticleEndpoint> { get }
     
-    func fetchTopNews() -> AnyPublisher<[Article], Error>
+    func fetchTopNews() -> AnyPublisher<Data, Error>
 }
 
 
@@ -21,13 +21,10 @@ class NewsProvider: NewsAPI {
     var provider = HttpClient<ArticleEndpoint>()
     
     
-    func fetchTopNews() -> AnyPublisher<[Article], Error> {
+    func fetchTopNews() -> AnyPublisher<Data, Error> {
         
         return provider.getData(from: .getTopHeadlines)
-            .decode(type: ArticleResponse.self, decoder: JSONDecoder())
-            .map { $0.articles }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+            
     }
     
     
