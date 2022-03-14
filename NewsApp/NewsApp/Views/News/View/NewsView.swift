@@ -10,15 +10,6 @@ import SwiftUI
 struct NewsView: View {
     
     @ObservedObject var vm = NewsViewModel()
-
-    
-    init() {
-        
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().barTintColor = ColorTheme.specialGray
-    }
-    
     
     var body: some View {
         
@@ -33,19 +24,30 @@ struct NewsView: View {
                             vm.getTopHeadlines()
                         } label: {
                             Image(systemName: "arrow.counterclockwise")
-                                .foregroundColor(.white)
+                                .foregroundColor(.secondary)
                         }
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            vm.getTopHeadlines()
+                            //TODO: route to searchview
                         } label: {
                             Image(systemName: "magnifyingglass")
-                                .foregroundColor(.white)
+                                .foregroundColor(.secondary)
                         }
                     }
                 }.onAppear(){
                     vm.getTopHeadlines()
+                }.alert(isPresented: $vm.showErrorDialog){
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(vm.errorState?.readableMessage() ?? "Unknown Error"),
+                        primaryButton: .default(Text("Ok"), action: {
+                            vm.refreshState()
+                        }),
+                        secondaryButton: .destructive(Text("Retry"), action: {
+                            vm.getTopHeadlines()
+                        })
+                    )
                 }
         }
         
@@ -59,45 +61,46 @@ struct NewsViewContent: View {
     
     var body: some View {
         
-        ZStack{
+        if(vm.loadingState){
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                .scaleEffect(1.5, anchor: .center)
+                
+        }else{
             
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            
-            if(vm.loadingState){
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                    .scaleEffect(1.5, anchor: .center)
-                    
+            if(vm.articles.count > 0){
+                HomeList(news: vm.articles)
             }else{
-                
-                ScrollView(.vertical, showsIndicators: false) {
-                
-                    VStack(){
-                        
-                        TopHeadlineRow(news: vm.articles)
-                            .alert(isPresented: $vm.showErrorDialog){
-                                Alert(
-                                    title: Text("Error"),
-                                    message: Text(vm.errorState?.readableMessage() ?? "Unknown Error"),
-                                    primaryButton: .default(Text("Ok"), action: {
-                                        vm.refreshState()
-                                    }),
-                                    secondaryButton: .destructive(Text("Retry"), action: {
-                                        vm.getTopHeadlines()
-                                    })
-                                )
-                            }
-                        
-                        NewsList(news: vm.articles)
-                        
-                    }
-
-                }
-                
+                Text("No Source Available")
+                    .foregroundColor(.white)
+ 
             }
+            
         }
         
+    }
+}
+
+struct HomeList: View {
+    
+    var news: [Article] = []
+    
+    var body: some View {
+        
+        ScrollView(.vertical, showsIndicators: false) {
+        
+            VStack(){
+                
+                TopHeadlineRow(news: Array(news.shuffled()[0...5]))
+                    .animation(.easeIn)
+                
+                NewsList(news: news)
+                    .animation(.easeIn)
+                
+            }
+
+        }
+        .fixFlickering()
     }
 }
 
@@ -109,8 +112,10 @@ struct TopHeadlineRow: View {
     var body: some View {
         
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(){
-                ForEach(news.shuffled(), id: \.self) { article in
+            
+            HStack(){
+                
+                ForEach(news, id: \.self) { article in
                     
                     TopHeadlineCard(article: article)
                         .frame(width: UIScreen.main.bounds.size.width,
@@ -131,12 +136,15 @@ struct NewsList: View {
     
     var body: some View {
         
- 
-        LazyVStack(){
-            ForEach(news, id: \.self) { article in
+        ScrollView(.vertical, showsIndicators: false) {
+            
+            LazyVStack(){
                 
-                NewsCard(article: article)
-                
+                ForEach(news, id: \.self) { article in
+                    
+                    NewsCard(article: article)
+                    
+                }
             }
         }
         

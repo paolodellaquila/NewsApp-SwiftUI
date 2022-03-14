@@ -23,21 +23,19 @@ struct TopHeadlineCard: View {
             KFImage(URL(string: article.urlToImage ?? ""))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.size.width - 16)
-                .modifier(CardModifier())
-                .frame(width: UIScreen.main.bounds.size.width,
+                .frame(width: UIScreen.main.bounds.size.width - 16,
                        height: 300,
                        alignment: .center)
+                .modifier(CardModifier())
 
             Rectangle()
                 .foregroundColor(.black)
                 .opacity(0.5)
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.size.width - 16)
-                .modifier(CardModifier())
-                .frame(width: UIScreen.main.bounds.size.width,
+                .frame(width: UIScreen.main.bounds.size.width - 16,
                        height: 300,
                        alignment: .center)
+                .modifier(CardModifier())
             
             TopHeadlineCardContent(article: article)
             
@@ -75,7 +73,7 @@ struct TopHeadlineCard: View {
         }
         .sheet(isPresented: $shouldShowShareSheet) {
             ShareViewController(activityItems: [
-                self.article.title ?? "",
+                self.article.title,
                 self.article.url
             ])
         }
@@ -122,6 +120,6 @@ struct TopHeadlineCard_Previews: PreviewProvider {
             urlToImage: "https://images.wsj.net/im-503948/social",
             publishedAt: "2022-03-13T16:44:47Z",
             content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…"))
-            .frame(width: .infinity, height: 200, alignment: .center)
+            .frame(width: .infinity, height: 300, alignment: .center)
     }
 }

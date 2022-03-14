@@ -9,13 +9,6 @@ import SwiftUI
 
 struct SharedTabView: View {
     
-    init() {
-        
-        UITabBar.appearance().barTintColor = UIColor(red: 32/255, green: 36/255, blue: 38/255, alpha: 1.0)
-        
-        UITabBar.appearance().tintColor = UIColor(red: 32/255, green: 36/255, blue: 38/255, alpha: 1.0)
-    }
-    
     var body: some View {
 
         TabView {
@@ -27,6 +20,11 @@ struct SharedTabView: View {
             SourceView()
                 .tabItem {
                     Label("Source", systemImage: "eyeglasses")
+                }
+            
+            SearchView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
                 }
             
             FavoriteView()

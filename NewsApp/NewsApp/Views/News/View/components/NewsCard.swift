@@ -24,7 +24,7 @@ struct NewsCard: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 80)
-                .padding([.leading, .trailing], 16)
+                .padding([.trailing], 16)
                 .modifier(CardModifier())
 
         

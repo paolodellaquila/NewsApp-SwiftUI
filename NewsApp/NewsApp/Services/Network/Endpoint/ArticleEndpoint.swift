@@ -24,7 +24,7 @@ enum ArticleEndpoint: EndpointProtocol {
             return baseURL + "/top-headlines"
             
         case .getSources:
-            return baseURL + "/sources"
+            return baseURL + "/top-headlines/sources"
             
         case .getArticlesFromSource, .searchForArticles:
             return baseURL + "/everything"
@@ -40,10 +40,10 @@ enum ArticleEndpoint: EndpointProtocol {
             return ["country": region, "category": category]
             
         case .getSources:
-            return ["language": locale, "country": region]
+            return ["language": locale]
             
         case let .getArticlesFromSource(source):
-            return ["sources": source, "language": locale]
+            return ["sources": source]
             
         case let .searchForArticles(searchFilter):
             return ["q": searchFilter, "language": locale]

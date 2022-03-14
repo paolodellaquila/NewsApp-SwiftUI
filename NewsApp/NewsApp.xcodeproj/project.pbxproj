@@ -39,8 +39,11 @@
 		48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */; };
 		48EC05B627DF4F4400DF7108 /* SourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B527DF4F4400DF7108 /* SourceProvider.swift */; };
 		48EC05B927DF505900DF7108 /* SourceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B827DF505900DF7108 /* SourceResponse.swift */; };
-		48EC05BD27DF530300DF7108 /* SourceArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05BC27DF530300DF7108 /* SourceArticles.swift */; };
+		48EC05BD27DF530300DF7108 /* SourceArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05BC27DF530300DF7108 /* SourceArticlesView.swift */; };
 		48EC05BF27DF559300DF7108 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05BE27DF559300DF7108 /* ColorTheme.swift */; };
+		48EC05C227DF5FBF00DF7108 /* SourceArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C127DF5FBF00DF7108 /* SourceArticleViewModel.swift */; };
+		48EC05C527DF600200DF7108 /* SourceArticleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C427DF600200DF7108 /* SourceArticleProvider.swift */; };
+		48EC05C827DF909D00DF7108 /* ScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C727DF909D00DF7108 /* ScrollView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +98,11 @@
 		48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewModel.swift; sourceTree = "<group>"; };
 		48EC05B527DF4F4400DF7108 /* SourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceProvider.swift; sourceTree = "<group>"; };
 		48EC05B827DF505900DF7108 /* SourceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceResponse.swift; sourceTree = "<group>"; };
-		48EC05BC27DF530300DF7108 /* SourceArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceArticles.swift; sourceTree = "<group>"; };
+		48EC05BC27DF530300DF7108 /* SourceArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceArticlesView.swift; sourceTree = "<group>"; };
 		48EC05BE27DF559300DF7108 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		48EC05C127DF5FBF00DF7108 /* SourceArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceArticleViewModel.swift; sourceTree = "<group>"; };
+		48EC05C427DF600200DF7108 /* SourceArticleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceArticleProvider.swift; sourceTree = "<group>"; };
+		48EC05C727DF909D00DF7108 /* ScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,8 +266,8 @@
 				4822F16927DD363700AEB8AF /* SharedTab */,
 				4822F16127DD32D900AEB8AF /* News */,
 				4822F16F27DD38C100AEB8AF /* Source */,
-				4822F17027DD38D200AEB8AF /* Search */,
 				48EC05BA27DF52EE00DF7108 /* SourceArticles */,
+				4822F17027DD38D200AEB8AF /* Search */,
 				4822F17127DD38DF00AEB8AF /* Favorite */,
 			);
 			path = Views;
@@ -366,6 +372,7 @@
 		4822F18B27DD517600AEB8AF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48EC05C627DF908900DF7108 /* Utils */,
 				48A767CC27DE3023005FE46D /* View */,
 				4822F18C27DD518600AEB8AF /* Constants.swift */,
 				48EC05BE27DF559300DF7108 /* ColorTheme.swift */,
@@ -418,6 +425,8 @@
 		48EC05BA27DF52EE00DF7108 /* SourceArticles */ = {
 			isa = PBXGroup;
 			children = (
+				48EC05C327DF5FF300DF7108 /* Provider */,
+				48EC05C027DF5FAA00DF7108 /* ViewModel */,
 				48EC05BB27DF52F800DF7108 /* View */,
 			);
 			path = SourceArticles;
@@ -426,9 +435,33 @@
 		48EC05BB27DF52F800DF7108 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				48EC05BC27DF530300DF7108 /* SourceArticles.swift */,
+				48EC05BC27DF530300DF7108 /* SourceArticlesView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		48EC05C027DF5FAA00DF7108 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05C127DF5FBF00DF7108 /* SourceArticleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48EC05C327DF5FF300DF7108 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05C427DF600200DF7108 /* SourceArticleProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		48EC05C627DF908900DF7108 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				48EC05C727DF909D00DF7108 /* ScrollView+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,16 +615,19 @@
 				4822F19027DD51F400AEB8AF /* ArticleResponse.swift in Sources */,
 				48A767C427DE2980005FE46D /* HttpErrors.swift in Sources */,
 				48EC05B027DF4E4700DF7108 /* ShareViewController.swift in Sources */,
-				48EC05BD27DF530300DF7108 /* SourceArticles.swift in Sources */,
+				48EC05BD27DF530300DF7108 /* SourceArticlesView.swift in Sources */,
 				48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */,
 				48EC05B927DF505900DF7108 /* SourceResponse.swift in Sources */,
 				4822F17727DD391A00AEB8AF /* SearchView.swift in Sources */,
 				4822F16327DD32E700AEB8AF /* NewsView.swift in Sources */,
 				48A767CE27DE302C005FE46D /* SafariView.swift in Sources */,
+				48EC05C227DF5FBF00DF7108 /* SourceArticleViewModel.swift in Sources */,
+				48EC05C527DF600200DF7108 /* SourceArticleProvider.swift in Sources */,
 				48A767C527DE2980005FE46D /* HttpClientErrors.swift in Sources */,
 				4822F17F27DD4A1200AEB8AF /* EndpointProtocol.swift in Sources */,
 				4822F16B27DD364400AEB8AF /* SharedTabView.swift in Sources */,
 				4822F17A27DD392800AEB8AF /* FavoriteView.swift in Sources */,
+				48EC05C827DF909D00DF7108 /* ScrollView+Extension.swift in Sources */,
 				4822F18127DD4C7900AEB8AF /* HttpClient.swift in Sources */,
 				4822F16027DD2E3F00AEB8AF /* SplashView.swift in Sources */,
 				48A767C827DE2E29005FE46D /* TopHeadlineCard.swift in Sources */,

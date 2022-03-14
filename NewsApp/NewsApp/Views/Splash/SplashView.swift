@@ -20,22 +20,15 @@ struct SplashView: View {
     
     var body: some View {
         
-        ZStack{
-            
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            
-            if(!endSplash){
-                SplashContent()
-                    .onAppear(){
-                        delayNavigation()
-                    }
-            }else{
-                SharedTabView()
-                    .animation(.easeIn)
-                    .transition(.opacity)
-            }
-            
+        if(!endSplash){
+            SplashContent()
+                .onAppear(){
+                    delayNavigation()
+                }
+        }else{
+            SharedTabView()
+                .animation(.easeIn)
+                .transition(.opacity)
         }
     }
 }
@@ -49,9 +42,10 @@ struct SplashContent: View {
              
              Image("news_icon")
                 .frame(width: 64.0, height: 64.0)
-                .foregroundColor(.white)
+                .foregroundColor(.secondary)
             
          }
+
         
         
     }
