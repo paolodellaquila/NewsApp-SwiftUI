@@ -17,7 +17,7 @@ class SourceArticleViewModel: ObservableObject {
     private(set) var articles = [Article]()
     var errorState: HandledError?
     
-    @Published var loadingState: Bool = false
+    @Published var loadingState: Bool = true
     @Published var showErrorDialog: Bool = false
     
     init(provider: SourceArticleProvider = SourceArticleProvider()){

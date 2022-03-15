@@ -17,14 +17,17 @@ struct SourceView: View {
             
             SourceViewContent(vm: vm)
                 .navigationTitle("Sources")
-                .navigationBarTitleDisplayMode(.automatic)
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             vm.getSources()
                         } label: {
-                            Image(systemName: "arrow.counterclockwise")
+                            if !vm.loadingState {
+                                
+                                Image(systemName: "arrow.counterclockwise")
                                 .foregroundColor(.primary)
+                            }
                         }
                     }
                 }.onAppear(){
@@ -67,6 +70,8 @@ struct SourceViewContent: View {
             
         }
         
+
+        
     }
 }
 
@@ -88,7 +93,7 @@ struct SourceListView: View {
             )
         }
         .listStyle(InsetGroupedListStyle())
-        .environment(\.horizontalSizeClass, .regular)
+        .environment(\.verticalSizeClass, .regular)
         .animation(.spring())
     }
     

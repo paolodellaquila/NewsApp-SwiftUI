@@ -17,7 +17,7 @@ class SourceViewModel: ObservableObject {
     private(set) var sources = [Source]()
     var errorState: HandledError?
     
-    @Published var loadingState: Bool = false
+    @Published var loadingState: Bool = true
     @Published var showErrorDialog: Bool = false
     
     init(provider: SourceProvider = SourceProvider()){

@@ -27,7 +27,7 @@ struct SharedTabView: View {
                     Label("Saved", systemImage: "heart")
                 }
         }
-        .accentColor(.black)
+        .accentColor(.primary)
         
     }
 }
@@ -36,7 +36,7 @@ struct SharedTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SharedTabView()
-                .preferredColorScheme(.dark)
+                .preferredColorScheme(.light)
         }
     }
 }

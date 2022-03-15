@@ -21,6 +21,21 @@ struct NewsView: View {
                 .navigationTitle(searching ? "Searching..." : "News")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if !vm.loadingState {
+                            
+                            Button {
+                                searching = !searching
+                            } label: {
+                                
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.secondary)
+                            }
+                            .animation(.easeIn)
+                        }
+                    }
+                    
                     ToolbarItem(placement: .navigationBarTrailing) {
                         if searching {
                             Button("Cancel") {
@@ -31,23 +46,23 @@ struct NewsView: View {
                                 }
                             }
                         }else{
-                            Button {
-                                vm.getTopHeadlines()
-                            } label: {
-                                Image(systemName: "arrow.counterclockwise")
-                                    .foregroundColor(.secondary)
+                            
+                            if !vm.loadingState {
+                                Button {
+                                    vm.getTopHeadlines()
+                                } label: {
+                                    
+                                    Image(systemName: "arrow.counterclockwise")
+                                            .foregroundColor(.secondary)
+                                }
+                                .animation(.easeIn)
                             }
+
                         }
 
                     }
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            searching = !searching
-                        } label: {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.secondary)
-                        }
-                    }
+                    
+                    
                 }.onAppear(){
                     vm.getTopHeadlines()
                 }.alert(isPresented: $vm.showErrorDialog){
