@@ -80,7 +80,8 @@ struct SourceListView: View {
         List(sources, id: \.self) { source in
             NavigationLink(
                 destination: SourceArticlesView(source: source)
-                    .navigationBarTitle(Text(source.name)),
+                    .navigationBarTitle(Text(source.name))
+                    .accentColor(.white),
                 label: {
                     Text(source.name)
                 }

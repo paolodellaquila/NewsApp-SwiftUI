@@ -15,7 +15,9 @@ class NewsViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     
     private(set) var articles = [Article]()
-    @Published var latestArticle: Article?
+    var latestArticle: [Article] {
+        Array(articles.shuffled()[0...5])
+    }
     
     var errorState: HandledError?
     @Published var loadingState: Bool = false

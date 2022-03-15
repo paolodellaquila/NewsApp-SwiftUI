@@ -22,11 +22,6 @@ struct SharedTabView: View {
                     Label("Source", systemImage: "eyeglasses")
                 }
             
-            SearchView()
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
-            
             FavoriteView()
                 .tabItem {
                     Label("Saved", systemImage: "heart")
@@ -41,6 +36,7 @@ struct SharedTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SharedTabView()
+                .preferredColorScheme(.dark)
         }
     }
 }

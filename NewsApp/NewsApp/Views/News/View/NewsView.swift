@@ -10,26 +10,39 @@ import SwiftUI
 struct NewsView: View {
     
     @ObservedObject var vm = NewsViewModel()
+    @State var searchText = ""
+    @State var searching = false
     
     var body: some View {
         
         NavigationView {
             
-            NewsViewContent(vm: vm)
-                .navigationTitle("News")
+            NewsViewContent(vm: vm, searchText: $searchText, searching: $searching)
+                .navigationTitle(searching ? "Searching..." : "News")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            vm.getTopHeadlines()
-                        } label: {
-                            Image(systemName: "arrow.counterclockwise")
-                                .foregroundColor(.secondary)
+                        if searching {
+                            Button("Cancel") {
+                                searchText = ""
+                                withAnimation {
+                                    searching = false
+                                    UIApplication.shared.dismissKeyboard()
+                                }
+                            }
+                        }else{
+                            Button {
+                                vm.getTopHeadlines()
+                            } label: {
+                                Image(systemName: "arrow.counterclockwise")
+                                    .foregroundColor(.secondary)
+                            }
                         }
+
                     }
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            //TODO: route to searchview
+                            searching = !searching
                         } label: {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.secondary)
@@ -58,10 +71,12 @@ struct NewsView: View {
 struct NewsViewContent: View {
     
     @ObservedObject var vm = NewsViewModel()
+    @Binding var searchText: String
+    @Binding var searching: Bool
     
     var body: some View {
         
-        if(vm.loadingState){
+        if vm.loadingState{
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                 .scaleEffect(1.5, anchor: .center)
@@ -69,7 +84,16 @@ struct NewsViewContent: View {
         }else{
             
             if(vm.articles.count > 0){
-                HomeList(news: vm.articles)
+                VStack{
+                    
+                    if searching {
+                        SearchBar(searchText: $searchText, searching: $searching)
+                            .animation(.spring())
+                    }
+                    
+                    HomeList(searchText: $searchText, searching: $searching, news: vm.latestArticle)
+                }
+
             }else{
                 Text("No Source Available")
                     .foregroundColor(.white)
@@ -81,7 +105,44 @@ struct NewsViewContent: View {
     }
 }
 
+struct SearchBar: View {
+    
+    @Binding var searchText: String
+    @Binding var searching: Bool
+    
+    var body: some View {
+        
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color.gray)
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.secondary)
+                TextField("Typing keywords..", text: $searchText){ startedEditing in
+                    if startedEditing {
+                        withAnimation {
+                            searching = true
+                        }
+                    }
+                } onCommit: {
+                    withAnimation {
+                        searching = false
+                    }
+                }
+            }
+            .foregroundColor(.secondary)
+            .padding(.leading,13)
+        }
+        .frame(height: 40)
+        .cornerRadius(16)
+        .padding()
+    }
+}
+
 struct HomeList: View {
+    
+    @Binding var searchText: String
+    @Binding var searching: Bool
     
     var news: [Article] = []
     
@@ -91,17 +152,25 @@ struct HomeList: View {
         
             VStack(){
                 
-                TopHeadlineRow(news: Array(news.shuffled()[0...5]))
-                    .animation(.easeIn)
+                if !searching {
+                    TopHeadlineRow(news: news)
+                }
                 
-                NewsList(news: news)
-                    .animation(.easeIn)
+                NewsList(news: news.filter({(article: Article) -> Bool in
+                    return article.title.hasPrefix(searchText) || searchText == ""
+                }))
                 
             }
 
         }
         .fixFlickering()
+        .gesture(DragGesture()
+                     .onChanged({ _ in
+                         UIApplication.shared.dismissKeyboard()
+                     })
+         )
     }
+    
 }
 
 
@@ -147,7 +216,6 @@ struct NewsList: View {
                 }
             }
         }
-        
     }
 }
 
