@@ -11,10 +11,11 @@ import Kingfisher
 
 struct TopHeadlineCard: View {
     
+    var article: ArticleResponse
+    var handleSelectedNews: (ArticleResponse) -> ()
+    
     @State private var shouldPresentURL: Bool = false
     @State private var shouldShowShareSheet: Bool = false
-    
-    var article: ArticleResponse
     
     var body: some View {
         
@@ -47,7 +48,7 @@ struct TopHeadlineCard: View {
             VStack{
                 Button(
                     action: {
-                        //TODO: save article to db
+                        handleSelectedNews(article)
                     },
                     label: {
                         Text("Add to favorites")
@@ -111,7 +112,8 @@ struct TopHeadlineCardContent: View {
 
 struct TopHeadlineCard_Previews: PreviewProvider {
     static var previews: some View {
-        TopHeadlineCard(article: ArticleResponse(
+        
+        let article = ArticleResponse(
             source: ArticleSourceResponse(id: "", name: "CNN"),
             author: "test",
             title: "Russian Missiles Strike Ukrainian Military Training Base Near Polish Border - The Wall Street Journal",
@@ -119,7 +121,9 @@ struct TopHeadlineCard_Previews: PreviewProvider {
             url: "https://www.wsj.com/articles/russian-missiles-strike-ukrainian-military-training-base-near-polish-border-11647169428",
             urlToImage: "https://images.wsj.net/im-503948/social",
             publishedAt: "2022-03-13T16:44:47Z",
-            content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…"))
-            .frame(width: .infinity, height: 300, alignment: .center)
+            content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…")
+        
+        TopHeadlineCard(article: article, handleSelectedNews: {_ in})
+        .frame(width: .infinity, height: 300, alignment: .center)
     }
 }

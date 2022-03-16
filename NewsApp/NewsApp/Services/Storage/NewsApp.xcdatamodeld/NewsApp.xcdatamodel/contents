@@ -6,19 +6,18 @@
         <attribute name="content" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="publishedAt" attributeType="String"/>
-        <attribute name="source" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="url" attributeType="String"/>
         <attribute name="urlToImage" optional="YES" attributeType="String"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="relationship" inverseEntity="Source"/>
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Source" inverseName="article" inverseEntity="Source"/>
     </entity>
     <entity name="Source" representedClassName="Source" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="relationship" inverseEntity="Article"/>
+        <relationship name="article" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="source" inverseEntity="Article"/>
     </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="-18" width="128" height="179"/>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="Source" positionX="-63" positionY="54" width="128" height="74"/>
     </elements>
 </model>

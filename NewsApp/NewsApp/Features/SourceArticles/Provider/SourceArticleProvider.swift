@@ -13,6 +13,8 @@ protocol SourceArticlesAPI {
     var provider: HttpClient<ArticleEndpoint> { get }
     
     func fetchNewsFromSource(source: String) -> AnyPublisher<Data, Error>
+    
+    func saveFavoriteNews(article: ArticleResponse) throws
 }
 
 
@@ -25,6 +27,16 @@ class SourceArticleProvider: SourceArticlesAPI {
         
         return provider.getData(from: .getArticlesFromSource(source))
             
+    }
+    
+    func saveFavoriteNews(article: ArticleResponse) throws {
+        
+        do{
+           try article.asEntity().save()
+        }catch {
+            throw error
+        }
+
     }
     
     

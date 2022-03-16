@@ -60,6 +60,7 @@ struct SourceNewsContent: View {
 
 struct SourceNewsList: View {
     
+    @ObservedObject var vm = SourceArticleViewModel()
     var news: [ArticleResponse] = []
     
     var body: some View {
@@ -68,7 +69,9 @@ struct SourceNewsList: View {
             LazyVStack(){
                 ForEach(news.shuffled(), id: \.self) { article in
                     
-                    TopHeadlineCard(article: article)
+                    TopHeadlineCard( article: article, handleSelectedNews: { article in
+                        vm.saveFavoriteArticle(article: article)
+                    })
                         .frame(width: UIScreen.main.bounds.size.width,
                                height: 300,
                                alignment: .center)

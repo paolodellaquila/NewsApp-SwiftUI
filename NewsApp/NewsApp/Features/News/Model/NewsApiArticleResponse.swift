@@ -31,8 +31,38 @@ struct ArticleResponse: Codable, Identifiable, Hashable {
     }
 }
 
+extension ArticleResponse{
+    
+    func asEntity() -> Article{
+        let article = Article(context: Article.viewContext)
+        article.id = id
+        article.source = source.asEntity()
+        article.author = author
+        article.title = title
+        article.articleDescription = articleDescription
+        article.url = url
+        article.urlToImage = urlToImage
+        article.publishedAt = publishedAt
+        article.content = content
+        
+        return article
+    }
+}
+
+
 // MARK: - Source
 struct ArticleSourceResponse: Codable, Identifiable, Hashable{
     let id: String?
     let name: String
+}
+
+extension ArticleSourceResponse{
+       
+    func asEntity() -> Source{
+        let source = Source(context: Source.viewContext)
+        source.id = id
+        source.name = name
+        
+        return source
+    }
 }

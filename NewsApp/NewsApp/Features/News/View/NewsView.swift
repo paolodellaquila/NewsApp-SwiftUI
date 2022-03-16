@@ -106,7 +106,7 @@ struct NewsViewContent: View {
                             .animation(.spring())
                     }
                     
-                    HomeList(searchText: $searchText, searching: $searching, news: vm.latestArticle)
+                    HomeList(vm: vm, searchText: $searchText, searching: $searching, news: vm.latestArticle)
                 }
 
             }else{
@@ -156,6 +156,7 @@ struct SearchBar: View {
 
 struct HomeList: View {
     
+    @ObservedObject var vm = NewsViewModel()
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -171,7 +172,7 @@ struct HomeList: View {
                     TopHeadlineRow(news: news)
                 }
                 
-                NewsList(news: news.filter({(article: ArticleResponse) -> Bool in
+                NewsList(vm: vm, news: news.filter({(article: ArticleResponse) -> Bool in
                     return article.title.hasPrefix(searchText) || searchText == ""
                 }))
                 
@@ -191,6 +192,7 @@ struct HomeList: View {
 
 struct TopHeadlineRow: View {
     
+    @ObservedObject var vm = NewsViewModel()
     var news: [ArticleResponse] = []
     
     var body: some View {
@@ -201,8 +203,11 @@ struct TopHeadlineRow: View {
                 
                 ForEach(news, id: \.self) { article in
                     
-                    TopHeadlineCard(article: article)
-                        .frame(width: UIScreen.main.bounds.size.width,
+                    TopHeadlineCard(article: article, handleSelectedNews: {article in
+                        
+                        vm.saveFavoriteArticle(article: article)
+                    })
+                    .frame(width: UIScreen.main.bounds.size.width,
                                height: 300,
                                alignment: .center)
                     
@@ -216,6 +221,7 @@ struct TopHeadlineRow: View {
 
 struct NewsList: View {
     
+    @ObservedObject var vm = NewsViewModel()
     var news: [ArticleResponse] = []
     
     var body: some View {
@@ -226,7 +232,11 @@ struct NewsList: View {
                 
                 ForEach(news, id: \.self) { article in
                     
-                    NewsCard(article: article)
+                    NewsCard(article: article,
+                             handleSelectedNews: { article in
+                        
+                        vm.saveFavoriteArticle(article: article)
+                    })
                     
                 }
             }

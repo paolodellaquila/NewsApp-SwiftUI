@@ -56,6 +56,16 @@ class NewsViewModel: ObservableObject {
         
     }
     
+    func saveFavoriteArticle(article: ArticleResponse){
+        
+        do{
+            try self.provider.saveFavoriteNews(article: article)
+        }catch{
+            self.errorState = HandledError(status: "error", code: "500", message: error.localizedDescription)
+            self.showErrorDialog = true
+        }
+    }
+    
     func refreshState(){
         errorState = nil
         showErrorDialog = false
