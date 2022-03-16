@@ -1,42 +1,42 @@
 //
-//  SourceViewModel.swift
+//  SourceArticleViewModel.swift
 //  NewsApp
 //
-//  Created by Francesco Paolo Dellaquila on 14/03/22.
+//  Created by Francesco Paolo Dellaquila on 12/03/22.
 //
 
 import Foundation
 import Combine
+import SwiftUI
 
-
-class SourceViewModel: ObservableObject {
+class SourceArticleViewModel: ObservableObject {
     
-    private let provider: SourceProvider!
+    private let provider: SourceArticleProvider!
     private var bag = Set<AnyCancellable>()
     
-    private(set) var sources = [Source]()
+    private(set) var articles = [ArticleResponse]()
     var errorState: HandledError?
     
     @Published var loadingState: Bool = true
     @Published var showErrorDialog: Bool = false
     
-    init(provider: SourceProvider = SourceProvider()){
+    init(provider: SourceArticleProvider = SourceArticleProvider()){
         self.provider = provider
     }
     
     
-    func getSources() {
+    func getArticlesFromSource(source: SourceResponse) {
         
         refreshState()
         loadingState = true
         
-        provider.fetchSources()
+        provider.fetchNewsFromSource(source: source.id)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] data in
                 
-                if let sourceResponse = try? JSONDecoder().decode(SourcesResponse.self, from: data){
-                    self?.sources = sourceResponse.sources
+                if let articlesResponse = try? JSONDecoder().decode(NewsApiArticleResponse.self, from: data){
+                    self?.articles = articlesResponse.articles
                     
                 }else{
                     if let error = try? JSONDecoder().decode(HandledError.self, from: data){

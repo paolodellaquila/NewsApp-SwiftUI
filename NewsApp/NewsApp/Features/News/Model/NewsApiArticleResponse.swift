@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct ArticleResponse: Codable {
+struct NewsApiArticleResponse: Codable {
     let status: String
     let totalResults: Int
-    let articles: [Article]
+    let articles: [ArticleResponse]
 }
 
-struct Article: Codable, Identifiable, Hashable {
+struct ArticleResponse: Codable, Identifiable, Hashable {
     var id: String = UUID().uuidString
-    let source: ArticleSource
+    let source: ArticleSourceResponse
     let author: String?
     let title: String
     let articleDescription: String?
@@ -32,7 +32,7 @@ struct Article: Codable, Identifiable, Hashable {
 }
 
 // MARK: - Source
-struct ArticleSource: Codable, Identifiable, Hashable{
+struct ArticleSourceResponse: Codable, Identifiable, Hashable{
     let id: String?
     let name: String
 }

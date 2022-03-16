@@ -1,5 +1,5 @@
 //
-//  NewsCard.swift
+//  TopHeadlineCard.swift
 //  NewsApp
 //
 //  Created by Francesco Paolo Dellaquila on 13/03/22.
@@ -9,58 +9,40 @@ import Foundation
 import SwiftUI
 import Kingfisher
 
-struct NewsCard: View {
+struct TopHeadlineCard: View {
     
     @State private var shouldPresentURL: Bool = false
     @State private var shouldShowShareSheet: Bool = false
     
-    var article: Article
+    var article: ArticleResponse
     
     var body: some View {
         
-        HStack(alignment: .center) {
-        
+        ZStack(alignment: .bottom) {
+            
             KFImage(URL(string: article.urlToImage ?? ""))
                 .resizable()
-                .scaledToFill()
-                .frame(width: 80)
-                .padding([.trailing], 16)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.size.width - 16,
+                       height: 300,
+                       alignment: .center)
                 .modifier(CardModifier())
 
-        
-
-            VStack(alignment: .leading) {
-                
-                Spacer()
-                
-                Text(article.title)
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .foregroundColor(.white)
-                    .lineLimit(3)
-                
-                Spacer()
-                
-                Text(article.articleDescription ?? "")
-                    .font(.system(size: 12, weight: .bold, design: .default))
-                    .foregroundColor(.gray)
-                    .lineLimit(3)
-                HStack {
-                    Text(article.source.name)
-                        .font(.system(size: 16, weight: .bold, design: .default))
-                        .foregroundColor(.white)
-                        .padding(.top, 8)
-                }
-            }.padding(.all, 8)
-        
+            Rectangle()
+                .foregroundColor(.black)
+                .opacity(0.5)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.size.width - 16,
+                       height: 300,
+                       alignment: .center)
+                .modifier(CardModifier())
+            
+            TopHeadlineCardContent(article: article)
+            
         }
         .onTapGesture {
             shouldPresentURL = true
         }
-        .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color(red: 32/255, green: 36/255, blue: 38/255))
-        .modifier(CardModifier())
-        .padding([.leading, .trailing], 8)
-        .padding([.top, .bottom], 8)
         .contextMenu {
             VStack{
                 Button(
@@ -95,25 +77,42 @@ struct NewsCard: View {
                 self.article.url
             ])
         }
-        
     }
-}
-
-struct CardModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .cornerRadius(16)
-            .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 0)
-    }
-}
-
-
-struct NewsCard_Previews: PreviewProvider {
     
-    static var previews: some View {
+}
+
+struct TopHeadlineCardContent: View {
+    
+    var article: ArticleResponse
+    
+    var body: some View {
         
-        NewsCard(article: Article(
-            source: ArticleSource(id: "", name: "CNN"),
+        VStack(alignment: .leading) {
+            
+            Text(verbatim: article.source.name)
+                .foregroundColor(.white)
+                .font(.subheadline)
+                .lineLimit(1)
+                .multilineTextAlignment(.leading)
+                .padding([.leading, .trailing], 20)
+                .padding(.bottom, 4)
+            
+            Text(verbatim: article.title )
+                .foregroundColor(.white)
+                .font(.headline)
+                .lineLimit(2)
+                .multilineTextAlignment(.leading)
+                .padding([.leading, .bottom, .trailing], 20)
+        }
+        
+        
+    }
+}
+
+struct TopHeadlineCard_Previews: PreviewProvider {
+    static var previews: some View {
+        TopHeadlineCard(article: ArticleResponse(
+            source: ArticleSourceResponse(id: "", name: "CNN"),
             author: "test",
             title: "Russian Missiles Strike Ukrainian Military Training Base Near Polish Border - The Wall Street Journal",
             articleDescription: "Attack on site where U.S. trained local forces kills at least 35, follows Moscow warning that arms shipments to Kyiv won’t be tolerated",
@@ -121,6 +120,6 @@ struct NewsCard_Previews: PreviewProvider {
             urlToImage: "https://images.wsj.net/im-503948/social",
             publishedAt: "2022-03-13T16:44:47Z",
             content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…"))
-            .frame(width: .infinity, height: 220, alignment: .center)
+            .frame(width: .infinity, height: 300, alignment: .center)
     }
 }

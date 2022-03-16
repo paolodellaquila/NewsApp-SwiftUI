@@ -159,7 +159,7 @@ struct HomeList: View {
     @Binding var searchText: String
     @Binding var searching: Bool
     
-    var news: [Article] = []
+    var news: [ArticleResponse] = []
     
     var body: some View {
         
@@ -171,7 +171,7 @@ struct HomeList: View {
                     TopHeadlineRow(news: news)
                 }
                 
-                NewsList(news: news.filter({(article: Article) -> Bool in
+                NewsList(news: news.filter({(article: ArticleResponse) -> Bool in
                     return article.title.hasPrefix(searchText) || searchText == ""
                 }))
                 
@@ -191,7 +191,7 @@ struct HomeList: View {
 
 struct TopHeadlineRow: View {
     
-    var news: [Article] = []
+    var news: [ArticleResponse] = []
     
     var body: some View {
         
@@ -216,7 +216,7 @@ struct TopHeadlineRow: View {
 
 struct NewsList: View {
     
-    var news: [Article] = []
+    var news: [ArticleResponse] = []
     
     var body: some View {
         

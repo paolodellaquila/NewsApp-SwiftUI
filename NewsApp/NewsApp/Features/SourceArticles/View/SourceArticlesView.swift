@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SourceArticlesView: View {
     
-    var source: Source!
+    var source: SourceResponse!
     @ObservedObject var vm = SourceArticleViewModel()
 
     
@@ -60,7 +60,7 @@ struct SourceNewsContent: View {
 
 struct SourceNewsList: View {
     
-    var news: [Article] = []
+    var news: [ArticleResponse] = []
     
     var body: some View {
         
@@ -85,7 +85,7 @@ struct SourceNewsList: View {
 struct SourceArticlesView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SourceArticlesView(source: Source(
+        SourceArticlesView(source: SourceResponse(
             id: "",
             name: "test",
             description: "test",

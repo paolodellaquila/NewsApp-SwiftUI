@@ -8,12 +8,12 @@
 import Foundation
 
 
-struct SourcesResponse: Codable {
+struct NewsApiSourcesResponse: Codable {
     let status: String
-    let sources: [Source]
+    let sources: [SourceResponse]
 }
 
-struct Source: Codable, Identifiable, Hashable {
+struct SourceResponse: Codable, Identifiable, Hashable {
     let id: String
     let name: String
     let description: String?

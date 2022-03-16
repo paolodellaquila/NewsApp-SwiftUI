@@ -78,7 +78,7 @@ struct SourceViewContent: View {
 
 struct SourceListView: View {
     
-    var sources: [Source] = []
+    var sources: [SourceResponse] = []
     
     var body: some View {
         
