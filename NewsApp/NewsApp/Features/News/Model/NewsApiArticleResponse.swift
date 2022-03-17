@@ -57,7 +57,8 @@ struct ArticleSourceResponse: Codable, Identifiable, Hashable{
 }
 
 extension ArticleSourceResponse{
-       
+    
+    
     func asEntity() -> Source{
         let source = Source(context: Source.viewContext)
         source.id = id

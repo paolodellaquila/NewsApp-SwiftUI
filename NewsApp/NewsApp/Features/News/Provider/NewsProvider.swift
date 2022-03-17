@@ -14,11 +14,15 @@ protocol NewsAPI {
     
     func fetchTopNews() -> AnyPublisher<Data, Error>
     
+}
+
+protocol NewsStorage {
+    
     func saveFavoriteNews(article: ArticleResponse) throws
 }
 
 
-class NewsProvider: NewsAPI {
+class NewsProvider: NewsAPI, NewsStorage {
     
     var provider = HttpClient<ArticleEndpoint>()
     
@@ -33,6 +37,7 @@ class NewsProvider: NewsAPI {
         
         do{
            try article.asEntity().save()
+            
         }catch {
             throw error
         }

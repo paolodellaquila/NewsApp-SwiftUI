@@ -9,4 +9,8 @@ import Foundation
 
 extension Source: CoreDataBaseModel {
     
+    func asArticleResponseSource() -> ArticleSourceResponse{
+        return ArticleSourceResponse(id: self.id,
+                                     name: self.name!)
+    }
 }

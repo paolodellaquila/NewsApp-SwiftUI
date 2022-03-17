@@ -31,6 +31,8 @@
 		4867695F27E20DDE00B08B42 /* CoreDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867695E27E20DDE00B08B42 /* CoreDataBaseModel.swift */; };
 		4867696527E23C3E00B08B42 /* Article+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867696427E23C3E00B08B42 /* Article+Extension.swift */; };
 		4867696727E23EE200B08B42 /* Source+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867696627E23EE200B08B42 /* Source+Extension.swift */; };
+		4867696A27E24B2C00B08B42 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867696927E24B2C00B08B42 /* FavoriteViewModel.swift */; };
+		4867696D27E24B8C00B08B42 /* FavoriteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4867696C27E24B8C00B08B42 /* FavoriteProvider.swift */; };
 		48A767C127DE2939005FE46D /* HandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767C027DE2939005FE46D /* HandleError.swift */; };
 		48A767C427DE2980005FE46D /* HttpErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767C227DE2980005FE46D /* HttpErrors.swift */; };
 		48A767C527DE2980005FE46D /* HttpClientErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767C327DE2980005FE46D /* HttpClientErrors.swift */; };
@@ -94,6 +96,8 @@
 		4867695E27E20DDE00B08B42 /* CoreDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataBaseModel.swift; sourceTree = "<group>"; };
 		4867696427E23C3E00B08B42 /* Article+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+Extension.swift"; sourceTree = "<group>"; };
 		4867696627E23EE200B08B42 /* Source+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Source+Extension.swift"; sourceTree = "<group>"; };
+		4867696927E24B2C00B08B42 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		4867696C27E24B8C00B08B42 /* FavoriteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProvider.swift; sourceTree = "<group>"; };
 		48A767C027DE2939005FE46D /* HandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleError.swift; sourceTree = "<group>"; };
 		48A767C227DE2980005FE46D /* HttpErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpErrors.swift; sourceTree = "<group>"; };
 		48A767C327DE2980005FE46D /* HttpClientErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClientErrors.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 		4822F17127DD38DF00AEB8AF /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				4867696B27E24B7900B08B42 /* Provider */,
+				4867696827E24B1C00B08B42 /* ViewModel */,
 				4822F17827DD391E00AEB8AF /* View */,
 			);
 			path = Favorite;
@@ -386,6 +392,22 @@
 				4867695E27E20DDE00B08B42 /* CoreDataBaseModel.swift */,
 			);
 			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		4867696827E24B1C00B08B42 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4867696927E24B2C00B08B42 /* FavoriteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4867696B27E24B7900B08B42 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				4867696C27E24B8C00B08B42 /* FavoriteProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		48A767C627DE2E1C005FE46D /* components */ = {
@@ -622,6 +644,7 @@
 				4822F13B27DD20D000AEB8AF /* NewsApp.xcdatamodeld in Sources */,
 				48EC05BF27DF559300DF7108 /* ColorTheme.swift in Sources */,
 				4822F12F27DD20CF00AEB8AF /* NewsApp.swift in Sources */,
+				4867696A27E24B2C00B08B42 /* FavoriteViewModel.swift in Sources */,
 				4822F19227DD538F00AEB8AF /* NewsProvider.swift in Sources */,
 				4822F19027DD51F400AEB8AF /* NewsApiArticleResponse.swift in Sources */,
 				48A767C427DE2980005FE46D /* HttpErrors.swift in Sources */,
@@ -640,6 +663,7 @@
 				4822F16B27DD364400AEB8AF /* SharedTabView.swift in Sources */,
 				4822F17A27DD392800AEB8AF /* FavoriteView.swift in Sources */,
 				48EC05C827DF909D00DF7108 /* ScrollView+Extension.swift in Sources */,
+				4867696D27E24B8C00B08B42 /* FavoriteProvider.swift in Sources */,
 				4822F18127DD4C7900AEB8AF /* HttpClient.swift in Sources */,
 				4822F16027DD2E3F00AEB8AF /* SplashView.swift in Sources */,
 				48A767C827DE2E29005FE46D /* TopHeadlineCard.swift in Sources */,

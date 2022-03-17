@@ -36,7 +36,7 @@ extension CoreDataBaseModel {
     
     static func all<T>() -> [T] where T: NSManagedObject {
         
-        let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing: T.self))
+        let fetchRequest: NSFetchRequest<T> = NSFetchRequest(entityName: String(describing:self))
         
         do {
             return try viewContext.fetch(fetchRequest)

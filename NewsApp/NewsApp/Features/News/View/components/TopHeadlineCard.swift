@@ -12,6 +12,7 @@ import Kingfisher
 struct TopHeadlineCard: View {
     
     var article: ArticleResponse
+    var favoriteCard: Bool = false
     var handleSelectedNews: (ArticleResponse) -> ()
     
     @State private var shouldPresentURL: Bool = false
@@ -49,10 +50,17 @@ struct TopHeadlineCard: View {
                 Button(
                     action: {
                         handleSelectedNews(article)
+                        
                     },
                     label: {
-                        Text("Add to favorites")
-                        Image(systemName: "heart.fill")
+                        if !favoriteCard{
+                            Text("Add to favorites")
+                            Image(systemName: "heart")
+                        }else{
+                            Text("Remove from favorites")
+                            Image(systemName: "heart.fill")
+                        }
+
                     }
                 )
                 Button(

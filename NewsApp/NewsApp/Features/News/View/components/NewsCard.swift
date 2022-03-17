@@ -70,7 +70,7 @@ struct NewsCard: View {
                     },
                     label: {
                         Text("Add to favorites")
-                        Image(systemName: "heart.fill")
+                        Image(systemName: "heart")
                     }
                 )
                 Button(
