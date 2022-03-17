@@ -92,13 +92,6 @@ struct FavoriteNewsList: View {
 struct FavoriteView_Previews: PreviewProvider {
     
     static var previews: some View {
-        SourceArticlesView(source: SourceResponse(
-            id: "",
-            name: "test",
-            description: "test",
-            url: "",
-            category: "",
-            language: "",
-            country: ""))
+        FavoriteView()
     }
 }

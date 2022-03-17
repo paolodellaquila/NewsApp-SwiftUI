@@ -36,7 +36,9 @@ class SourceArticleViewModel: ObservableObject {
                   receiveValue: { [weak self] data in
                 
                 if let articlesResponse = try? JSONDecoder().decode(NewsApiArticleResponse.self, from: data){
-                    self?.articles = articlesResponse.articles
+                    DispatchQueue.main.async {
+                        self?.articles = articlesResponse.articles
+                    }
                     
                 }else{
                     if let error = try? JSONDecoder().decode(HandledError.self, from: data){

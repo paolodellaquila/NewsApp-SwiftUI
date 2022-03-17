@@ -4,7 +4,7 @@
         <attribute name="articleDescription" optional="YES" attributeType="String"/>
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="content" optional="YES" attributeType="String"/>
-        <attribute name="id" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="publishedAt" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="url" attributeType="String"/>

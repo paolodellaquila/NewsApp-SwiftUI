@@ -45,7 +45,7 @@ extension Article: CoreDataBaseModel {
     
     static func asArticleResponse(article: Article) -> ArticleResponse{
         
-        return ArticleResponse(id: article.id!,
+        return ArticleResponse(id: article.id!.uuidString,
                                source: article.source!.asArticleResponseSource(),
                                author: article.author,
                                title: article.title!,

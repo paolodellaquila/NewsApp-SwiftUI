@@ -35,7 +35,7 @@ extension ArticleResponse{
     
     func asEntity() -> Article{
         let article = Article(context: Article.viewContext)
-        article.id = id
+        article.id = UUID(uuidString: id)
         article.source = source.asEntity()
         article.author = author
         article.title = title

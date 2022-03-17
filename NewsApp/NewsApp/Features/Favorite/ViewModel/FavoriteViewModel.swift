@@ -41,6 +41,8 @@ class FavoriteViewModel: ObservableObject {
         do{
             try provider.deleteFavoriteNews(id: article.id)
             
+            self.getFavoriteNews()
+            
         }catch {
             self.errorState = HandledError(status: "error", code: "500", message: error.localizedDescription)
             self.showErrorDialog = true

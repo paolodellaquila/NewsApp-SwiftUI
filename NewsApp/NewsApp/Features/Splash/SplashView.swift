@@ -12,7 +12,7 @@ struct SplashView: View {
     @State private var endSplash = false
     
     func delayNavigation(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             endSplash = true
         }
