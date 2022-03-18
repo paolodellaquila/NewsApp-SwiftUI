@@ -250,7 +250,7 @@ struct NewsList: View {
                         Text("Save").fixedSize().font(.system(size: 12)).foregroundColor(.white)
                     }.frame(maxHeight: 80).castToAnyView()
           
-            }, backgroundColor: .purple, actionCallback: {
+            }, backgroundColor: .blue, actionCallback: {
                 vm.saveFavoriteArticle(article: article)
             }),
             
