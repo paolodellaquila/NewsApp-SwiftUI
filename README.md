@@ -22,6 +22,11 @@ NewsApp to display all recent news from public api
 ![HomeView](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/HomeView.png) 
 ![3dTouch](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/3DTouch.png) 
 ![Searchbar](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/Searchbar.png) 
+![Save](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/Save.png) 
 
 ### Source
 ![SourceView](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/SourceView.png) 
+![ArticleFromSoure](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/ArticleFromSource.png) 
+
+### Favorite
+![FavoriteView](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/FavoriteView.png) 

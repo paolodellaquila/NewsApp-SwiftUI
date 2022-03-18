@@ -36,7 +36,7 @@ struct SharedTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SharedTabView()
-                .preferredColorScheme(.light)
+                .preferredColorScheme(.dark)
         }
     }
 }
