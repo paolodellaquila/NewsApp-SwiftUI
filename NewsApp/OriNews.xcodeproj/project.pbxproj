@@ -74,15 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4822F12B27DD20CF00AEB8AF /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4822F12B27DD20CF00AEB8AF /* OriNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OriNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4822F12E27DD20CF00AEB8AF /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		4822F13227DD20D000AEB8AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4822F13527DD20D000AEB8AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4822F13727DD20D000AEB8AF /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
 		4822F13A27DD20D000AEB8AF /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
-		4822F14027DD20D000AEB8AF /* NewsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4822F14027DD20D000AEB8AF /* OriNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4822F14427DD20D000AEB8AF /* NewsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppTests.swift; sourceTree = "<group>"; };
-		4822F14A27DD20D000AEB8AF /* NewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4822F14A27DD20D000AEB8AF /* OriNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4822F14E27DD20D000AEB8AF /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		4822F15027DD20D000AEB8AF /* NewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4822F15F27DD2E3F00AEB8AF /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -164,9 +164,9 @@
 		4822F12C27DD20CF00AEB8AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4822F12B27DD20CF00AEB8AF /* NewsApp.app */,
-				4822F14027DD20D000AEB8AF /* NewsAppTests.xctest */,
-				4822F14A27DD20D000AEB8AF /* NewsAppUITests.xctest */,
+				4822F12B27DD20CF00AEB8AF /* OriNews.app */,
+				4822F14027DD20D000AEB8AF /* OriNewsTests.xctest */,
+				4822F14A27DD20D000AEB8AF /* OriNewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -535,9 +535,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4822F12A27DD20CF00AEB8AF /* NewsApp */ = {
+		4822F12A27DD20CF00AEB8AF /* OriNews */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4822F15427DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsApp" */;
+			buildConfigurationList = 4822F15427DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNews" */;
 			buildPhases = (
 				4822F12727DD20CF00AEB8AF /* Sources */,
 				4822F12827DD20CF00AEB8AF /* Frameworks */,
@@ -547,19 +547,19 @@
 			);
 			dependencies = (
 			);
-			name = NewsApp;
+			name = OriNews;
 			packageProductDependencies = (
 				48A767CA27DE2EA8005FE46D /* Kingfisher */,
 				48F0738427E34330007912C1 /* SwipeCellSUI */,
 				48DAC61E27E4AF2D00C29389 /* Lottie */,
 			);
 			productName = NewsApp;
-			productReference = 4822F12B27DD20CF00AEB8AF /* NewsApp.app */;
+			productReference = 4822F12B27DD20CF00AEB8AF /* OriNews.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4822F13F27DD20D000AEB8AF /* NewsAppTests */ = {
+		4822F13F27DD20D000AEB8AF /* OriNewsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4822F15727DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsAppTests" */;
+			buildConfigurationList = 4822F15727DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNewsTests" */;
 			buildPhases = (
 				4822F13C27DD20D000AEB8AF /* Sources */,
 				4822F13D27DD20D000AEB8AF /* Frameworks */,
@@ -570,14 +570,14 @@
 			dependencies = (
 				4822F14227DD20D000AEB8AF /* PBXTargetDependency */,
 			);
-			name = NewsAppTests;
+			name = OriNewsTests;
 			productName = NewsAppTests;
-			productReference = 4822F14027DD20D000AEB8AF /* NewsAppTests.xctest */;
+			productReference = 4822F14027DD20D000AEB8AF /* OriNewsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4822F14927DD20D000AEB8AF /* NewsAppUITests */ = {
+		4822F14927DD20D000AEB8AF /* OriNewsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4822F15A27DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsAppUITests" */;
+			buildConfigurationList = 4822F15A27DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNewsUITests" */;
 			buildPhases = (
 				4822F14627DD20D000AEB8AF /* Sources */,
 				4822F14727DD20D000AEB8AF /* Frameworks */,
@@ -588,9 +588,9 @@
 			dependencies = (
 				4822F14C27DD20D000AEB8AF /* PBXTargetDependency */,
 			);
-			name = NewsAppUITests;
+			name = OriNewsUITests;
 			productName = NewsAppUITests;
-			productReference = 4822F14A27DD20D000AEB8AF /* NewsAppUITests.xctest */;
+			productReference = 4822F14A27DD20D000AEB8AF /* OriNewsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -616,7 +616,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4822F12627DD20CF00AEB8AF /* Build configuration list for PBXProject "NewsApp" */;
+			buildConfigurationList = 4822F12627DD20CF00AEB8AF /* Build configuration list for PBXProject "OriNews" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -634,9 +634,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4822F12A27DD20CF00AEB8AF /* NewsApp */,
-				4822F13F27DD20D000AEB8AF /* NewsAppTests */,
-				4822F14927DD20D000AEB8AF /* NewsAppUITests */,
+				4822F12A27DD20CF00AEB8AF /* OriNews */,
+				4822F13F27DD20D000AEB8AF /* OriNewsTests */,
+				4822F14927DD20D000AEB8AF /* OriNewsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -736,12 +736,12 @@
 /* Begin PBXTargetDependency section */
 		4822F14227DD20D000AEB8AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4822F12A27DD20CF00AEB8AF /* NewsApp */;
+			target = 4822F12A27DD20CF00AEB8AF /* OriNews */;
 			targetProxy = 4822F14127DD20D000AEB8AF /* PBXContainerItemProxy */;
 		};
 		4822F14C27DD20D000AEB8AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4822F12A27DD20CF00AEB8AF /* NewsApp */;
+			target = 4822F12A27DD20CF00AEB8AF /* OriNews */;
 			targetProxy = 4822F14B27DD20D000AEB8AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -886,7 +886,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paolodellaquila.NewsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OriNews;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -916,7 +916,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paolodellaquila.NewsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OriNews;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -939,7 +939,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsApp.app/NewsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OriNews.app/OriNews";
 			};
 			name = Debug;
 		};
@@ -959,7 +959,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsApp.app/NewsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OriNews.app/OriNews";
 			};
 			name = Release;
 		};
@@ -1002,7 +1002,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4822F12627DD20CF00AEB8AF /* Build configuration list for PBXProject "NewsApp" */ = {
+		4822F12627DD20CF00AEB8AF /* Build configuration list for PBXProject "OriNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4822F15227DD20D000AEB8AF /* Debug */,
@@ -1011,7 +1011,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4822F15427DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsApp" */ = {
+		4822F15427DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4822F15527DD20D000AEB8AF /* Debug */,
@@ -1020,7 +1020,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4822F15727DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsAppTests" */ = {
+		4822F15727DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNewsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4822F15827DD20D000AEB8AF /* Debug */,
@@ -1029,7 +1029,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4822F15A27DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "NewsAppUITests" */ = {
+		4822F15A27DD20D000AEB8AF /* Build configuration list for PBXNativeTarget "OriNewsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4822F15B27DD20D000AEB8AF /* Debug */,
