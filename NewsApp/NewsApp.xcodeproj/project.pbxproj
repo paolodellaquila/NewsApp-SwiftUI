@@ -40,6 +40,10 @@
 		48A767CB27DE2EA8005FE46D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 48A767CA27DE2EA8005FE46D /* Kingfisher */; };
 		48A767CE27DE302C005FE46D /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767CD27DE302C005FE46D /* SafariView.swift */; };
 		48A767D327DE4FEE005FE46D /* NewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A767D227DE4FEE005FE46D /* NewsCard.swift */; };
+		48DAC61F27E4AF2D00C29389 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 48DAC61E27E4AF2D00C29389 /* Lottie */; };
+		48DAC62427E4B0C200C29389 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAC62327E4B0C200C29389 /* LottieView.swift */; };
+		48DAC62827E4B15D00C29389 /* origami_light.json in Resources */ = {isa = PBXBuildFile; fileRef = 48DAC62627E4B15D00C29389 /* origami_light.json */; };
+		48DAC62B27E4B52C00C29389 /* origami_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 48DAC62A27E4B52C00C29389 /* origami_dark.json */; };
 		48EC05B027DF4E4700DF7108 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */; };
 		48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */; };
 		48EC05B627DF4F4400DF7108 /* SourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05B527DF4F4400DF7108 /* SourceProvider.swift */; };
@@ -105,6 +109,9 @@
 		48A767C727DE2E29005FE46D /* TopHeadlineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlineCard.swift; sourceTree = "<group>"; };
 		48A767CD27DE302C005FE46D /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		48A767D227DE4FEE005FE46D /* NewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCard.swift; sourceTree = "<group>"; };
+		48DAC62327E4B0C200C29389 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		48DAC62627E4B15D00C29389 /* origami_light.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = origami_light.json; sourceTree = "<group>"; };
+		48DAC62A27E4B52C00C29389 /* origami_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = origami_dark.json; sourceTree = "<group>"; };
 		48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		48EC05B227DF4EE500DF7108 /* SourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewModel.swift; sourceTree = "<group>"; };
 		48EC05B527DF4F4400DF7108 /* SourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceProvider.swift; sourceTree = "<group>"; };
@@ -123,6 +130,7 @@
 			files = (
 				48A767CB27DE2EA8005FE46D /* Kingfisher in Frameworks */,
 				48F0738527E34330007912C1 /* SwipeCellSUI in Frameworks */,
+				48DAC61F27E4AF2D00C29389 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +298,7 @@
 		4822F16E27DD381100AEB8AF /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				48DAC62027E4B03800C29389 /* View */,
 				4822F15F27DD2E3F00AEB8AF /* SplashView.swift */,
 			);
 			path = Splash;
@@ -372,6 +381,7 @@
 		4822F18B27DD517600AEB8AF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48DAC62527E4B15300C29389 /* Resources */,
 				48EC05C627DF908900DF7108 /* Utils */,
 				48A767CC27DE3023005FE46D /* View */,
 				4822F18C27DD518600AEB8AF /* Constants.swift */,
@@ -428,6 +438,31 @@
 				48EC05AF27DF4E4700DF7108 /* ShareViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		48DAC62027E4B03800C29389 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48DAC62227E4B0B500C29389 /* components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48DAC62227E4B0B500C29389 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				48DAC62327E4B0C200C29389 /* LottieView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		48DAC62527E4B15300C29389 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				48DAC62A27E4B52C00C29389 /* origami_dark.json */,
+				48DAC62627E4B15D00C29389 /* origami_light.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		48EC05B127DF4ED400DF7108 /* ViewModel */ = {
@@ -516,6 +551,7 @@
 			packageProductDependencies = (
 				48A767CA27DE2EA8005FE46D /* Kingfisher */,
 				48F0738427E34330007912C1 /* SwipeCellSUI */,
+				48DAC61E27E4AF2D00C29389 /* Lottie */,
 			);
 			productName = NewsApp;
 			productReference = 4822F12B27DD20CF00AEB8AF /* NewsApp.app */;
@@ -592,6 +628,7 @@
 			packageReferences = (
 				48A767C927DE2EA8005FE46D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				48F0738327E34330007912C1 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */,
+				48DAC61D27E4AF2D00C29389 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 4822F12C27DD20CF00AEB8AF /* Products */;
 			projectDirPath = "";
@@ -609,7 +646,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48DAC62827E4B15D00C29389 /* origami_light.json in Resources */,
 				4822F13627DD20D000AEB8AF /* Preview Assets.xcassets in Resources */,
+				48DAC62B27E4B52C00C29389 /* origami_dark.json in Resources */,
 				4822F13327DD20D000AEB8AF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +695,7 @@
 				48EC05BD27DF530300DF7108 /* SourceArticlesView.swift in Sources */,
 				48EC05B327DF4EE500DF7108 /* SourceViewModel.swift in Sources */,
 				4867695F27E20DDE00B08B42 /* CoreDataBaseModel.swift in Sources */,
+				48DAC62427E4B0C200C29389 /* LottieView.swift in Sources */,
 				48EC05B927DF505900DF7108 /* SourceResponse.swift in Sources */,
 				48422B8127DFE04E004441E1 /* UIApplication+Extension.swift in Sources */,
 				4822F16327DD32E700AEB8AF /* NewsView.swift in Sources */,
@@ -1009,6 +1049,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		48DAC61D27E4AF2D00C29389 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		48F0738327E34330007912C1 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DominikButz/SwipeCellSUI.git";
@@ -1024,6 +1072,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 48A767C927DE2EA8005FE46D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		48DAC61E27E4AF2D00C29389 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48DAC61D27E4AF2D00C29389 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		48F0738427E34330007912C1 /* SwipeCellSUI */ = {
 			isa = XCSwiftPackageProductDependency;
