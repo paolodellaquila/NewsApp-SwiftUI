@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeCellSUI
 
 struct FavoriteView: View {
     
@@ -65,7 +66,9 @@ struct FavoriteNewsContent: View {
 struct FavoriteNewsList: View {
     
     @ObservedObject var vm = FavoriteViewModel()
-    var news: [ArticleResponse] = []
+    @State var news: [ArticleResponse] = []
+    
+    @State var selectedArticleID: String?
     
     var body: some View {
         
@@ -73,19 +76,38 @@ struct FavoriteNewsList: View {
             LazyVStack(){
                 ForEach(news, id: \.self) { article in
                     
-                    TopHeadlineCard(article: article, favoriteCard: true, handleSelectedNews: { article in
-                        vm.deleteFromFavorite(article: article)
-                    })
-                        .frame(width: UIScreen.main.bounds.size.width,
-                               height: 300,
-                               alignment: .center)
-                        .padding()
+                    NewsCard(article: article)
+                        .swipeCell(id: article.id, cellWidth: UIScreen.main.bounds.size.width, leadingSideGroup: [], trailingSideGroup: rightGroup(article: article), currentUserInteractionCellID: $selectedArticleID)
+                        .onTapGesture {
+                            selectedArticleID = article.id
+                        }
                     
                 }
             }
         }
         .fixFlickering()
         
+    }
+    
+    func rightGroup(article: ArticleResponse)->[SwipeCellActionItem] {
+
+        let items =  [
+
+            SwipeCellActionItem(buttonView: {
+                    VStack(spacing: 2)  {
+                    Image(systemName: "trash").font(.system(size: 22)).foregroundColor(.white)
+                        Text("Remove").fixedSize().font(.system(size: 12)).foregroundColor(.white)
+                    }.frame(maxHeight: 80).castToAnyView()
+          
+            }, backgroundColor: .red, actionCallback: {
+                
+                vm.deleteFromFavorite(article: article)
+                news = news.filter{$0.id != article.id}
+            }),
+            
+          ]
+        
+        return items
     }
 }
 

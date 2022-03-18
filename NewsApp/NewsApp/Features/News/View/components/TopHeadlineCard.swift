@@ -12,8 +12,6 @@ import Kingfisher
 struct TopHeadlineCard: View {
     
     var article: ArticleResponse
-    var favoriteCard: Bool = false
-    var handleSelectedNews: (ArticleResponse) -> ()
     
     @State private var shouldPresentURL: Bool = false
     @State private var shouldShowShareSheet: Bool = false
@@ -42,27 +40,8 @@ struct TopHeadlineCard: View {
             TopHeadlineCardContent(article: article)
             
         }
-        .onTapGesture {
-            shouldPresentURL = true
-        }
         .contextMenu {
             VStack{
-                Button(
-                    action: {
-                        handleSelectedNews(article)
-                        
-                    },
-                    label: {
-                        if !favoriteCard{
-                            Text("Add to favorites")
-                            Image(systemName: "heart")
-                        }else{
-                            Text("Remove from favorites")
-                            Image(systemName: "heart.fill")
-                        }
-
-                    }
-                )
                 Button(
                     action: {
                         self.shouldShowShareSheet.toggle()
@@ -131,7 +110,7 @@ struct TopHeadlineCard_Previews: PreviewProvider {
             publishedAt: "2022-03-13T16:44:47Z",
             content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…")
         
-        TopHeadlineCard(article: article, handleSelectedNews: {_ in})
+        TopHeadlineCard(article: article)
         .frame(width: .infinity, height: 300, alignment: .center)
     }
 }

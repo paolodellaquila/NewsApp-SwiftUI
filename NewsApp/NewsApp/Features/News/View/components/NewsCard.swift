@@ -12,7 +12,6 @@ import Kingfisher
 struct NewsCard: View {
     
     var article: ArticleResponse
-    var handleSelectedNews: (ArticleResponse) -> ()
     
     @State private var shouldPresentURL: Bool = false
     @State private var shouldShowShareSheet: Bool = false
@@ -66,15 +65,6 @@ struct NewsCard: View {
             VStack{
                 Button(
                     action: {
-                        handleSelectedNews(article)
-                    },
-                    label: {
-                        Text("Add to favorites")
-                        Image(systemName: "heart")
-                    }
-                )
-                Button(
-                    action: {
                         self.shouldShowShareSheet.toggle()
                     },
                     label: {
@@ -123,7 +113,7 @@ struct NewsCard_Previews: PreviewProvider {
             publishedAt: "2022-03-13T16:44:47Z",
             content: "A Russian airstrike killed 35 people at a Ukrainian military training center about 10 miles from the Polish border early Sunday, one day after Moscow warned the West that it would consider arms deliv…")
         
-        NewsCard(article: article, handleSelectedNews: { _ in })
+        NewsCard(article: article)
         .frame(width: .infinity, height: 220, alignment: .center)
     }
 }

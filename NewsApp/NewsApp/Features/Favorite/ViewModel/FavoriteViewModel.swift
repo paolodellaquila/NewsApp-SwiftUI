@@ -13,7 +13,7 @@ class FavoriteViewModel: ObservableObject {
     
     private let provider: FavoriteProvider!
     
-    private(set) var articles = [ArticleResponse]()
+    @Published var articles = [ArticleResponse]()
     var errorState: HandledError?
     
     @Published var loadingState: Bool = true
@@ -39,9 +39,11 @@ class FavoriteViewModel: ObservableObject {
     func deleteFromFavorite(article: ArticleResponse){
         
         do{
+            DispatchQueue.main.async {
+                self.articles = self.articles.filter{$0.id != article.id}
+            }
+
             try provider.deleteFavoriteNews(id: article.id)
-            
-            self.getFavoriteNews()
             
         }catch {
             self.errorState = HandledError(status: "error", code: "500", message: error.localizedDescription)

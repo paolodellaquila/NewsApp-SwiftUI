@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeCellSUI
 
 struct NewsView: View {
     
@@ -129,7 +130,7 @@ struct SearchBar: View {
         
         ZStack {
             Rectangle()
-                .foregroundColor(Color.gray)
+                .foregroundColor(.secondary)
             HStack {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.secondary)
@@ -203,14 +204,10 @@ struct TopHeadlineRow: View {
                 
                 ForEach(news, id: \.self) { article in
                     
-                    TopHeadlineCard(article: article, handleSelectedNews: {article in
-                        
-                        vm.saveFavoriteArticle(article: article)
-                    })
-                    .frame(width: UIScreen.main.bounds.size.width,
+                    TopHeadlineCard(article: article)
+                        .frame(width: UIScreen.main.bounds.size.width,
                                height: 300,
                                alignment: .center)
-                    
                 }
             }
         }
@@ -224,23 +221,42 @@ struct NewsList: View {
     @ObservedObject var vm = NewsViewModel()
     var news: [ArticleResponse] = []
     
+    @State var selectedArticleID: String?
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
-            
             LazyVStack(){
-                
                 ForEach(news, id: \.self) { article in
                     
-                    NewsCard(article: article,
-                             handleSelectedNews: { article in
-                        
-                        vm.saveFavoriteArticle(article: article)
-                    })
+                    NewsCard(article: article)
+                        .swipeCell(id: article.id, cellWidth: UIScreen.main.bounds.size.width, leadingSideGroup: [], trailingSideGroup: rightGroup(article: article), currentUserInteractionCellID: $selectedArticleID)
+                        .onTapGesture {
+                            selectedArticleID = article.id
+                        }
                     
                 }
             }
         }
+    }
+    
+    func rightGroup(article: ArticleResponse)->[SwipeCellActionItem] {
+
+        let items =  [
+
+            SwipeCellActionItem(buttonView: {
+                    VStack(spacing: 2)  {
+                    Image(systemName: "folder.fill").font(.system(size: 22)).foregroundColor(.white)
+                        Text("Save").fixedSize().font(.system(size: 12)).foregroundColor(.white)
+                    }.frame(maxHeight: 80).castToAnyView()
+          
+            }, backgroundColor: .purple, actionCallback: {
+                vm.saveFavoriteArticle(article: article)
+            }),
+            
+          ]
+        
+        return items
     }
 }
 

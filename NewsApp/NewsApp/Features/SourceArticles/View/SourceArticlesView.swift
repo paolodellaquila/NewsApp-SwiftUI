@@ -69,9 +69,7 @@ struct SourceNewsList: View {
             LazyVStack(){
                 ForEach(news.shuffled(), id: \.self) { article in
                     
-                    TopHeadlineCard( article: article, handleSelectedNews: { article in
-                        vm.saveFavoriteArticle(article: article)
-                    })
+                    TopHeadlineCard( article: article)
                         .frame(width: UIScreen.main.bounds.size.width,
                                height: 300,
                                alignment: .center)

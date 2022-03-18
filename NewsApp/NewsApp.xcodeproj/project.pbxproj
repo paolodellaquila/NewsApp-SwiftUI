@@ -49,6 +49,7 @@
 		48EC05C227DF5FBF00DF7108 /* SourceArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C127DF5FBF00DF7108 /* SourceArticleViewModel.swift */; };
 		48EC05C527DF600200DF7108 /* SourceArticleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C427DF600200DF7108 /* SourceArticleProvider.swift */; };
 		48EC05C827DF909D00DF7108 /* ScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC05C727DF909D00DF7108 /* ScrollView+Extension.swift */; };
+		48F0738527E34330007912C1 /* SwipeCellSUI in Frameworks */ = {isa = PBXBuildFile; productRef = 48F0738427E34330007912C1 /* SwipeCellSUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A767CB27DE2EA8005FE46D /* Kingfisher in Frameworks */,
+				48F0738527E34330007912C1 /* SwipeCellSUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +515,7 @@
 			name = NewsApp;
 			packageProductDependencies = (
 				48A767CA27DE2EA8005FE46D /* Kingfisher */,
+				48F0738427E34330007912C1 /* SwipeCellSUI */,
 			);
 			productName = NewsApp;
 			productReference = 4822F12B27DD20CF00AEB8AF /* NewsApp.app */;
@@ -588,6 +591,7 @@
 			mainGroup = 4822F12227DD20CF00AEB8AF;
 			packageReferences = (
 				48A767C927DE2EA8005FE46D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				48F0738327E34330007912C1 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */,
 			);
 			productRefGroup = 4822F12C27DD20CF00AEB8AF /* Products */;
 			projectDirPath = "";
@@ -1005,6 +1009,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		48F0738327E34330007912C1 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DominikButz/SwipeCellSUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1012,6 +1024,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 48A767C927DE2EA8005FE46D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		48F0738427E34330007912C1 /* SwipeCellSUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48F0738327E34330007912C1 /* XCRemoteSwiftPackageReference "SwipeCellSUI" */;
+			productName = SwipeCellSUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 
