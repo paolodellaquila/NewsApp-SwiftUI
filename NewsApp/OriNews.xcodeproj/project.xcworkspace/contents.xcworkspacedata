@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/francescopaolodellaquila/Desktop/NewsApp-SwiftUI/NewsApp/OriNews.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

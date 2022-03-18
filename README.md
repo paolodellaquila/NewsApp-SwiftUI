@@ -17,8 +17,11 @@ NewsApp to display all recent news from public api
 ##### 4. Run app
 
 ## Overview tab
-### Home
+### Splash 
+![Light](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/splash_light.gif) 
+![Dark](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/splash_dark.gif) 
 
+### Home
 ![HomeView](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/HomeView.png) 
 ![3dTouch](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/3DTouch.png) 
 ![Searchbar](https://github.com/paolodellaquila/NewsApp-SwiftUI/blob/main/ScreenShots/Searchbar.png) 
